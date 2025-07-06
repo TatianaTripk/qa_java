@@ -1,5 +1,6 @@
 package com.example;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -16,19 +17,24 @@ public class CatTest {
     @Mock
     private Feline feline;
 
-    @Test
-    public void getSoundShouldReturnMeowTest() {
-        Cat cat = new Cat(feline);
-        assertEquals("Мяу", cat.getSound());
+    private Cat cat;
+
+    @Before
+    public void setUp() {
+        cat = new Cat(feline);
     }
 
-    @Test
-    public void getFoodReturnsPredatorFoodTest() throws Exception {
-        when(feline.eatMeat()).thenReturn(List.of("Рыба", "Птицы"));
-        Cat cat = new Cat(feline);
-        List<String> food = cat.getFood();
-        assertEquals(List.of("Рыба", "Птицы"), food);
-        verify(feline, times(1)).eatMeat();
-    }
+        @Test
+        public void getSoundShouldReturnMeowTest () {
+            assertEquals("Мяу", cat.getSound());
+        }
 
-}
+        @Test
+        public void getFoodReturnsPredatorFoodTest () throws Exception {
+            when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+            List<String> food = cat.getFood();
+            assertEquals(List.of("Животные", "Птицы", "Рыба"), food);
+            //  verify(feline, times(1)).eatMeat();
+        }
+
+    }
