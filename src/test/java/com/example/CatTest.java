@@ -24,17 +24,16 @@ public class CatTest {
         cat = new Cat(feline);
     }
 
-        @Test
-        public void getSoundShouldReturnMeowTest () {
-            assertEquals("Мяу", cat.getSound());
-        }
-
-        @Test
-        public void getFoodReturnsPredatorFoodTest () throws Exception {
-            when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-            List<String> food = cat.getFood();
-            assertEquals(List.of("Животные", "Птицы", "Рыба"), food);
-            //  verify(feline, times(1)).eatMeat();
-        }
-
+    @Test
+    public void getSoundShouldReturnMeowTest() {
+        assertEquals("Мяу", cat.getSound());
     }
+
+    @Test
+    public void getFoodReturnsPredatorFoodTest() throws Exception {
+        when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+        List<String> food = cat.getFood();
+        assertEquals(List.of("Животные", "Птицы", "Рыба"), food);
+    }
+
+}
