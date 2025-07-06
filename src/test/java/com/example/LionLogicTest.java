@@ -1,6 +1,7 @@
 package com.example;
 
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -20,21 +21,17 @@ public class LionLogicTest {
 
     @Test
     public void getFoodShouldReturnPredatorFoodTest() throws Exception {
-        when(feline.getFood(anyString())).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-
         Lion lion = new Lion("Самец", feline);
-        List<String> food = lion.getFood();
-        assertEquals(List.of("Животные", "Птицы", "Рыба"), food);
-        verify(feline).getFood(anyString());
-    }
+        when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+        assertEquals(List.of("Животные", "Птицы", "Рыба"), lion.getFood());
+        }
     @Test
     public void getKittensShouldReturnCorrectValueTest() throws Exception {
         when(feline.getKittens()).thenReturn(2);
         Lion lion = new Lion("Самка", feline);
         int kittens = lion.getKittens();
         assertEquals(2, kittens);
-        verify(feline, times(1)).getKittens();
-    }
+        }
 
     @Test(expected = Exception.class)
     public void lionConstructorThrowsExceptionOnInvalidSexTest() throws Exception {
