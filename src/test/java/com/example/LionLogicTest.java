@@ -17,7 +17,7 @@ import static org.mockito.Mockito.*;
 public class LionLogicTest {
 
     @Mock
-    private FelineInterface feline;
+    private Feline feline;
 
     @Test
     public void getFoodShouldReturnPredatorFoodTest() throws Exception {
@@ -35,7 +35,6 @@ public class LionLogicTest {
 
     @Test(expected = Exception.class)
     public void lionConstructorThrowsExceptionOnInvalidSexTest() throws Exception {
-        FelineInterface feline = mock(FelineInterface.class);
         new Lion("Неопределён", feline);
     }
 }

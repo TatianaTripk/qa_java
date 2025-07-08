@@ -12,7 +12,7 @@ import java.util.List;
 public class LionAlexTest {
 
     @Mock
-    private FelineInterface feline;
+    private Feline feline;
 
     @Test
     public void getFriendsReturnsCorrectListTest() throws Exception {
@@ -30,7 +30,6 @@ public class LionAlexTest {
     @Test
     public void getKittensReturnsZeroTest() throws Exception {
         LionAlex alex = new LionAlex(feline);
-        alex.getKittens();
         Assert.assertEquals(0, alex.getKittens());
     }
 }

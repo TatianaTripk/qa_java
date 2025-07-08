@@ -7,7 +7,7 @@ public class LionAlex extends Lion {
 
     private static final List<String> FRIEND_LIST = Arrays.asList("Зебра Марти", "Бегемотиха Глория", "Жираф Мелман");
 
-    public LionAlex(FelineInterface feline) throws Exception {
+    public LionAlex(Feline feline) throws Exception {
         super("Самец", feline);
     }
 
